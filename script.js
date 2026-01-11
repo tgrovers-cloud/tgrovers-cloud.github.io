@@ -40,7 +40,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 let activeProject = null;
 let activeIndex = 0;
 
-function chipEl(text) {
+function chipHTML(text) {
   const span = document.createElement("span");
   span.className = "chip";
   span.textContent = text;
@@ -49,7 +49,6 @@ function chipEl(text) {
 
 function renderProjects() {
   grid.innerHTML = "";
-
   projects.forEach((p) => {
     const card = document.createElement("article");
     card.className = "project";
@@ -73,7 +72,7 @@ function renderProjects() {
 
     const chips = document.createElement("div");
     chips.className = "chips";
-    p.chips.forEach((c) => chips.appendChild(chipEl(c)));
+    p.chips.forEach(c => chips.appendChild(chipHTML(c)));
 
     body.appendChild(h);
     body.appendChild(d);
@@ -102,10 +101,9 @@ function openModal(project) {
   modalDesc.textContent = project.desc;
 
   modalChips.innerHTML = "";
-  project.chips.forEach((c) => modalChips.appendChild(chipEl(c)));
+  project.chips.forEach(c => modalChips.appendChild(chipHTML(c)));
 
   updateModalImage();
-
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -118,43 +116,37 @@ function closeModal() {
 }
 
 function updateModalImage() {
-  if (!activeProject) return;
-
-  const src = activeProject.images[activeIndex];
-  modalImg.src = src;
+  modalImg.src = activeProject.images[activeIndex];
   imgCounter.textContent = `${activeIndex + 1} / ${activeProject.images.length}`;
 }
 
 function nextImage() {
-  if (!activeProject) return;
   activeIndex = (activeIndex + 1) % activeProject.images.length;
   updateModalImage();
 }
 
 function prevImage() {
-  if (!activeProject) return;
   activeIndex = (activeIndex - 1 + activeProject.images.length) % activeProject.images.length;
   updateModalImage();
 }
 
-prevBtn.addEventListener("click", prevImage);
-nextBtn.addEventListener("click", nextImage);
+prevBtn.addEventListener("click", nextImage);
+nextBtn.addEventListener("click", prevImage);
 
 modal.addEventListener("click", (e) => {
-  if (e.target && e.target.dataset && e.target.dataset.close === "true") {
-    closeModal();
-  }
+  if (e.target.dataset.close === "true") closeModal();
 });
 
 document.addEventListener("keydown", (e) => {
   if (!modal.classList.contains("show")) return;
-
   if (e.key === "Escape") closeModal();
   if (e.key === "ArrowRight") nextImage();
   if (e.key === "ArrowLeft") prevImage();
 });
 
 renderProjects();
+
+
 
 
 
