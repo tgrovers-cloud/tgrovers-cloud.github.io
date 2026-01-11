@@ -6,16 +6,16 @@ const projects = [
     cover: "images/Neon Tetris Deluxe.png.png",
     chips: ["Python", "Pygame", "UI/UX", "Progression"],
     images: [
-      "images/Neon Tetris Deluxe.png.png",
-      "images/tetris-flow-simple-to-neon.png.png",
-      "images/tetris-level-progression.png.png"
+      "images/neon-tetris-deluxe.png",
+      "images/tetris-flow-simple-to-neon.png",
+      "images/tetris-level-progression.png"
     ]
   },
   {
     id: "pong",
     title: "Pong AI + Court Polish",
     desc: "Single-player Pong with AI improvements, gameplay polish, and visuals documenting changes.",
-    cover: "images/pong_court.png.png",
+    cover: "images/neon-tetris-deluxe.png"
     chips: ["Python", "Pygame", "AI", "Polish"],
     images: [
       "images/pong_court.png.png",
@@ -152,3 +152,4 @@ document.addEventListener("keydown", (e) => {
 });
 
 renderProjects();
+
