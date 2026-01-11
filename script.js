@@ -25,6 +25,7 @@ const projects = [
   }
 ];
 
+
 const grid = document.getElementById("projectGrid");
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
@@ -145,6 +146,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 renderProjects();
+
 
 
 
