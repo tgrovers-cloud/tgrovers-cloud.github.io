@@ -4,16 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tarquin Grovers • Portfolio</title>
-  <meta name="description" content="Tarquin Grovers — beginner developer building clean apps, games, and UI-focused projects." />
+  <meta name="description" content="Portfolio of Tarquin Grovers — clean apps and games (Python, Tkinter, SQLite, Pygame)." />
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="dot"></span>
-        <span>Tarquin Grovers</span>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-dot"></span>
+        <span class="brand-text">Tarquin Grovers</span>
       </a>
 
       <nav class="nav">
@@ -22,44 +23,158 @@
         <a href="#about">About</a>
       </nav>
 
-      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn btn-ghost" href="#projects">View Projects</a>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero container">
-      <div class="hero-left">
-        <div class="pill">Python • Tkinter • SQLite • Pygame</div>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="pill">Python • Tkinter • SQLite • Pygame</div>
 
-        <h1>
-          Hi, I’m <span class="grad">Tarquin Grovers</span><br />
-          I build clean apps & games.
-        </h1>
+          <h1 class="h1">
+            Hi, I’m <span class="accent">Tarquin Grovers</span><br/>
+            I build clean apps &amp; games.
+          </h1>
 
-        <p class="lead">
-          I’m learning software development through hands-on projects — from ticket booking apps to arcade-style games,
-          with a focus on clean UI and smooth user experience.
-        </p>
+          <p class="lead">
+            I’m learning software development through hands-on projects — from ticket booking apps to arcade-style games,
+            with a focus on clean UI and smooth user experience.
+          </p>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-ghost" href="#about">About Me</a>
-        </div>
-
-        <div class="links">
-          <a href="#" aria-label="GitHub">GitHub</a>
-          <span class="sep">•</span>
-          <a href="#" aria-label="LinkedIn">LinkedIn</a>
-          <span class="sep">•</span>
-          <a href="#" aria-label="Download CV">Download CV</a>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="featured card">
-          <div class="featured-top">
-            <span class="badge">Featured</span>
-            <span class="muted">Modern UI • Smooth gameplay</span>
+          <div class="hero-actions">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#about">About Me</a>
           </div>
 
-          <h3 id="featuredTitle">Neon Tetris Deluxe</h
+          <div class="links">
+            <a href="#" aria-label="GitHub">GitHub</a>
+            <span>•</span>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <span>•</span>
+            <a href="#" aria-label="Download CV">Download CV</a>
+          </div>
+        </div>
+
+        <aside class="featured">
+          <div class="featured-top">
+            <span class="badge">Featured</span>
+            <span class="featured-meta">Modern UI • Smooth Gameplay</span>
+          </div>
+
+          <h3 class="featured-title">Neon Tetris Deluxe</h3>
+          <p class="featured-desc">
+            A modern Tetris build with a clean panel UI, level progression, and neon-inspired visuals.
+          </p>
+
+          <div class="featured-actions">
+            <button class="btn btn-small" data-open="tetris">See details</button>
+            <button class="btn btn-ghost btn-small" data-open="tetris">Gallery</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2">Projects</h2>
+          <p class="muted">Click a project to open screenshots in a clean modal gallery.</p>
+        </div>
+
+        <div id="projectGrid" class="grid"></div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head split">
+          <h2 class="h2">Skills</h2>
+          <p class="muted">What I’m focusing on right now.</p>
+        </div>
+
+        <div class="skills">
+          <article class="card">
+            <h3 class="card-title">Core</h3>
+            <p class="card-text">Python, problem solving, clean code, debugging.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Apps</h3>
+            <p class="card-text">Tkinter UI, SQLite databases, exporting and receipts.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Games</h3>
+            <p class="card-text">Pygame, loops, physics, menus and UI design.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Web</h3>
+            <p class="card-text">HTML, CSS, JavaScript, GitHub Pages deployment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head split">
+          <h2 class="h2">About</h2>
+          <p class="muted">A quick summary.</p>
+        </div>
+
+        <div class="about">
+          <div class="avatar">
+            <img src="images/profile_photo.jpg" alt="Profile photo of Tarquin Grovers" />
+          </div>
+
+          <div class="about-body">
+            <p>
+              I’m a beginner developer building a strong foundation in Python through small projects.
+              I focus on writing clean code and making apps feel polished.
+            </p>
+            <p class="muted">
+              I’m currently expanding into web development so I can ship my work as real websites and web apps.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Tarquin Grovers • Built with HTML/CSS/JS</p>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Project gallery">
+      <button class="modal-close" data-close="true" aria-label="Close">✕</button>
+
+      <div class="modal-header">
+        <h3 id="modalTitle" class="modal-title">Title</h3>
+        <p id="modalDesc" class="modal-desc">Description</p>
+        <div id="modalChips" class="chips"></div>
+      </div>
+
+      <div class="modal-media">
+        <img id="modalImg" alt="Project screenshot" />
+      </div>
+
+      <div class="modal-controls">
+        <button id="prevBtn" class="btn btn-ghost btn-small">← Prev</button>
+        <span id="imgCounter" class="muted">1 / 1</span>
+        <button id="nextBtn" class="btn btn-ghost btn-small">Next →</button>
+      </div>
+
+      <p class="modal-hint muted">Tip: Use ← / → keys to browse. ESC to close.</p>
+    </div>
+  </div>
+</body>
+</html>
