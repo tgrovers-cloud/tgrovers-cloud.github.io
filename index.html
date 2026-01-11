@@ -1,169 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tarquin Grovers • Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tarquin Grovers — Portfolio</title>
+    <meta name="description" content="Modern portfolio: games, apps, and web projects." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-  <header class="site-header">
-    <div class="container header-grid">
-      <div class="brand">
-        <div class="logo-dot"></div>
-        <div>
-          <h1>Tarquin Grovers</h1>
-          <p class="subtitle">Modern dark portfolio • Games • Apps • Web</p>
+  <body>
+    <header class="wrap header">
+      <div class="header-top">
+        <div class="brand">
+          <img class="avatar" src="images/profile_photo.jpg" alt="Profile photo" />
+          <div>
+            <h1 class="name">Tarquin Grovers</h1>
+            <p class="tagline">Modern desktop portfolio · Games · Apps · Web</p>
+          </div>
         </div>
+
+        <nav class="nav">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
 
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+      <h2 class="headline">Building clean, modern projects with real features.</h2>
+      <p class="subhead">
+        I’m growing my skills through hands-on builds: desktop apps, games, and web projects.
+        This site showcases progress, iteration, and polished upgrades.
+      </p>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-left">
-          <h2>Building clean, modern projects with real features.</h2>
-          <p>
-            I’m growing my skills through hands-on builds: desktop apps, games, and web projects.
-            This site showcases progress, iterations, and polished upgrades.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn ghost" href="#contact">Contact</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <div class="stat-num">3+</div>
-              <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">Python</div>
-              <div class="stat-label">Core language</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">UI</div>
-              <div class="stat-label">Focused upgrades</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <div class="profile-card">
-            <img class="profile-img" src="images/profile_photo.jpg" alt="Profile photo" />
-            <div class="profile-glow"></div>
-            <div class="profile-meta">
-              <div class="profile-name">Tarquin Grovers</div>
-              <div class="profile-role">Builder • Learner • Creator</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h3>About</h3>
-          <p>
-            I’m building a portfolio by creating complete projects: planning, coding, debugging,
-            improving UX, and shipping something that actually runs.
-          </p>
-        </div>
-
-        <div class="about-cards">
-          <div class="card">
-            <h4>What I build</h4>
-            <p>Python desktop apps, Pygame games, web pages, and UI-focused upgrades.</p>
-          </div>
-          <div class="card">
-            <h4>What I’m learning</h4>
-            <p>Clean structure, UI/UX flow, persistence (databases), and deployment (GitHub Pages).</p>
-          </div>
-          <div class="card">
-            <h4>My vibe</h4>
-            <p>Modern dark, neon accents, clean layout, and projects that feel alive.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-head">
+    <main class="wrap">
+      <section id="projects" class="section">
+        <div class="section-title">
           <h3>Projects</h3>
           <p>Click any project to view screenshots in a clean modal gallery.</p>
         </div>
 
-        <div id="projectGrid" class="project-grid"></div>
-      </div>
-    </section>
+        <div id="projectGrid" class="grid" aria-live="polite"></div>
+      </section>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-head">
+      <section id="about" class="section">
+        <div class="section-title">
+          <h3>About</h3>
+        </div>
+
+        <div class="card">
+          <p>
+            I’m building a portfolio by shipping complete projects: planning, coding, debugging,
+            improving UX, and shipping something that actually runs.
+          </p>
+          <p class="muted">
+            What I build: desktop apps, Pygame games, web pages, and UI-focused upgrades.
+          </p>
+          <p class="muted">
+            What I’m learning: clean structure, UI/UX, persistence (databases), and deployment
+            (GitHub Pages).
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-title">
           <h3>Contact</h3>
-          <p>For now, you can add your email/links here later.</p>
+          <p>Replace these links with your real ones.</p>
         </div>
 
-        <div class="contact-row">
-          <div class="card">
-            <h4>Email</h4>
-            <p>Add your email here (example: you@email.com).</p>
+        <div class="card contact">
+          <div>
+            <div class="label">Email</div>
+            <a href="mailto:you@example.com">you@example.com</a>
           </div>
-          <div class="card">
-            <h4>GitHub</h4>
-            <p>Add your GitHub link here.</p>
+          <div>
+            <div class="label">GitHub</div>
+            <a href="https://github.com/yourname" target="_blank" rel="noreferrer">github.com/yourname</a>
           </div>
-          <div class="card">
-            <h4>LinkedIn</h4>
-            <p>Add your LinkedIn link here.</p>
+          <div>
+            <div class="label">LinkedIn</div>
+            <a href="https://linkedin.com/in/yourname" target="_blank" rel="noreferrer">linkedin.com/in/yourname</a>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-close="true"></div>
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Project screenshots">
-      <button class="modal-close" data-close="true" aria-label="Close">✕</button>
-
-      <div class="modal-head">
-        <div>
-          <div id="modalTitle" class="modal-title"></div>
-          <div id="modalDesc" class="modal-desc"></div>
-        </div>
-        <div id="modalChips" class="chips"></div>
-      </div>
-
-      <div class="modal-body">
-        <button id="prevBtn" class="nav-btn" aria-label="Previous">‹</button>
-        <div class="modal-image-wrap">
-          <img id="modalImg" class="modal-image" alt="Project screenshot" />
-          <div id="imgCounter" class="img-counter"></div>
-        </div>
-        <button id="nextBtn" class="nav-btn" aria-label="Next">›</button>
-      </div>
-    </div>
-  </div>
-
-  <footer class="site-footer">
-    <div class="container footer-row">
+    <footer class="wrap footer">
       <span>© <span id="year"></span> Tarquin Grovers</span>
-      <span class="footer-note">Built on GitHub Pages</span>
-    </div>
-  </footer>
+      <span class="muted">Built & hosted on GitHub Pages</span>
+    </footer>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Modal (click overlay or X to close) -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="icon-btn close" type="button" data-close="true" aria-label="Close modal">
+          ✕
+        </button>
+
+        <div class="modal-media">
+          <img id="modalImg" alt="" />
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-header">
+            <div>
+              <h4 id="modalTitle" class="modal-title"></h4>
+              <p id="modalDesc" class="modal-desc"></p>
+            </div>
+
+            <div class="counter" id="imgCounter">0 / 0</div>
+          </div>
+
+          <div id="modalChips" class="chips"></div>
+
+          <div class="modal-controls">
+            <button id="prevBtn" class="btn" type="button">← Prev</button>
+            <button id="nextBtn" class="btn" type="button">Next →</button>
+          </div>
+
+          <p class="hint muted">
+            Tip: Use <b>←</b>/<b>→</b> to navigate, <b>Esc</b> to close.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
 </html>
