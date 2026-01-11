@@ -3,243 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name • Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Tarquin Grovers • Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <header class="nav" id="top">
-    <div class="container nav-inner">
-      <a class="logo" href="#top">Tarquin Grovers<span>.</span></a>
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand">
+        <div class="logo-dot"></div>
+        <div>
+          <h1>Tarquin Grovers</h1>
+          <p class="subtitle">Modern dark portfolio • Games • Apps • Web</p>
+        </div>
+      </div>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+      <nav class="nav">
         <a href="#about">About</a>
-        <a class="btn btn-small" href="#contact">Contact</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </nav>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-        ☰
-      </button>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="hero">
+    <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-left reveal">
-          <p class="badge">Python • Tkinter • SQLite • Pygame</p>
-
-          <h1>
-            Hi, I’m <span class="accent">Tarquin Grovers</span> <br />
-            I build clean apps & games.
-          </h1>
-
-          <p class="hero-subtitle">
-            I’m learning software development through building real projects —
-            from ticket booking apps with databases to arcade-style games.
+        <div class="hero-left">
+          <h2>Building clean, modern projects with real features.</h2>
+          <p>
+            I’m growing my skills through hands-on builds: desktop apps, games, and web projects.
+            This site showcases progress, iterations, and polished upgrades.
           </p>
 
           <div class="hero-actions">
-            <a class="btn" href="#projects">View Projects</a>
-            <a class="btn btn-secondary" href="#contact">Hire / Contact</a>
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Contact</a>
           </div>
 
-          <div class="hero-links">
-            <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-            <span>•</span>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <span>•</span>
-            <a href="#" target="_blank" rel="noreferrer">Download CV</a>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-num">3+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Python</div>
+              <div class="stat-label">Core language</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">UI</div>
+              <div class="stat-label">Focused upgrades</div>
+            </div>
           </div>
         </div>
 
-        <div class="hero-right reveal">
-          <div class="card hero-card">
-            <h3>Featured Project</h3>
-            <p class="muted">
-              Ticket Booking App (SQLite + GUI) with search, receipts, and exports.
-            </p>
-
-            <div class="mini-stats">
-              <div class="stat">
-                <span class="stat-label">Tech</span>
-                <span class="stat-value">Python / Tkinter / SQLite</span>
-              </div>
-              <div class="stat">
-                <span class="stat-label">Focus</span>
-                <span class="stat-value">UX + real-world features</span>
-              </div>
+        <div class="hero-right">
+          <div class="profile-card">
+            <img class="profile-img" src="images/profile_photo.jpg" alt="Profile photo" />
+            <div class="profile-glow"></div>
+            <div class="profile-meta">
+              <div class="profile-name">Tarquin Grovers</div>
+              <div class="profile-role">Builder • Learner • Creator</div>
             </div>
-
-            <a class="btn btn-small" href="#projects">See details</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="projects">
+    <section id="about" class="section">
       <div class="container">
-        <div class="section-header reveal">
-          <h2>Projects</h2>
-          <p class="muted">A few things I’ve built while learning.</p>
+        <div class="section-head">
+          <h3>About</h3>
+          <p>
+            I’m building a portfolio by creating complete projects: planning, coding, debugging,
+            improving UX, and shipping something that actually runs.
+          </p>
         </div>
 
-        <div class="grid">
-          <article class="card project reveal reveal-delay-1">
-            <div class="project-top">
-              <h3>Ticket Booking App</h3>
-              <span class="pill">Python</span>
-            </div>
-
-            <p class="muted">
-              A desktop ticket booking app with a modern GUI, SQLite database,
-              booking references, search, export to CSV, and PDF receipts.
-            </p>
-
-            <ul class="project-list">
-              <li> Tabs: New Booking / Bookings</li>
-              <li> Search + edit bookings</li>
-              <li> Export CSV + PDF receipt printing</li>
-            </ul>
-
-            <div class="project-actions">
-              <a class="btn btn-small" href="#" target="_blank" rel="noreferrer">Live Demo</a>
-              <a class="btn btn-small btn-secondary" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card project reveal reveal-delay-2">
-            <div class="project-top">
-              <h3>Pong (Single Player AI)</h3>
-              <span class="pill">Pygame</span>
-            </div>
-
-            <p class="muted">
-              A modern Pong game with difficulty selection, AI behavior tuning,
-              collision fixes, and game-over menu.
-            </p>
-
-            <ul class="project-list">
-              <li> AI difficulty: Beginner → Expert</li>
-              <li> Smooth collision + non-sticky ball</li>
-              <li> UI: menu + game over screen</li>
-            </ul>
-
-            <div class="project-actions">
-              <a class="btn btn-small" href="#" target="_blank" rel="noreferrer">Gameplay Video</a>
-              <a class="btn btn-small btn-secondary" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card project reveal reveal-delay-3">
-            <div class="project-top">
-              <h3>Neon Tetris Deluxe</h3>
-              <span class="pill">Pygame</span>
-            </div>
-
-            <p class="muted">
-              A neon-themed Tetris game with a main menu, controls screen,
-              scoring, next piece preview, and polished visuals.
-            </p>
-
-            <ul class="project-list">
-              <li> Main menu + controls screen</li>
-              <li> Scoring + line clearing</li>
-              <li> Modern neon dark theme</li>
-            </ul>
-
-            <div class="project-actions">
-              <a class="btn btn-small" href="#" target="_blank" rel="noreferrer">Gameplay Video</a>
-              <a class="btn btn-small btn-secondary" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-          </article>
+        <div class="about-cards">
+          <div class="card">
+            <h4>What I build</h4>
+            <p>Python desktop apps, Pygame games, web pages, and UI-focused upgrades.</p>
+          </div>
+          <div class="card">
+            <h4>What I’m learning</h4>
+            <p>Clean structure, UI/UX flow, persistence (databases), and deployment (GitHub Pages).</p>
+          </div>
+          <div class="card">
+            <h4>My vibe</h4>
+            <p>Modern dark, neon accents, clean layout, and projects that feel alive.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="skills">
+    <section id="projects" class="section">
       <div class="container">
-        <div class="section-header reveal">
-          <h2>Skills</h2>
-          <p class="muted">What I’m focusing on right now.</p>
+        <div class="section-head">
+          <h3>Projects</h3>
+          <p>Click any project to view screenshots in a clean modal gallery.</p>
         </div>
 
-        <div class="skills-grid">
-          <div class="card reveal reveal-delay-1">
-            <h3>Core</h3>
-            <p class="muted">Python, problem solving, clean code, debugging.</p>
-          </div>
-          <div class="card reveal reveal-delay-2">
-            <h3>Apps</h3>
-            <p class="muted">Tkinter GUI, SQLite databases, exporting and receipts.</p>
-          </div>
-          <div class="card reveal reveal-delay-3">
-            <h3>Games</h3>
-            <p class="muted">Pygame, game loops, physics, menus & UI design.</p>
-          </div>
-          <div class="card reveal">
-            <h3>Web (next)</h3>
-            <p class="muted">HTML, CSS, JavaScript, deployment, responsive design.</p>
-          </div>
-        </div>
+        <div id="projectGrid" class="project-grid"></div>
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section id="contact" class="section">
       <div class="container">
-        <div class="section-header reveal">
-          <h2>About</h2>
-          <p class="muted">A quick summary.</p>
+        <div class="section-head">
+          <h3>Contact</h3>
+          <p>For now, you can add your email/links here later.</p>
         </div>
 
-        <div class="card about about-grid reveal">
-          <img class="about-photo" src="images/profile_photo.jpg" alt="Profile photo" />
-
-          <div>
-            <p>
-              I’m a beginner developer building a strong foundation in Python
-              through real projects. I’m focused on writing code that works,
-              looks good, and feels polished.
-            </p>
-
-            <p class="muted">
-              I’m currently expanding into web development so I can ship my work
-              as real websites and web apps.
-            </p>
+        <div class="contact-row">
+          <div class="card">
+            <h4>Email</h4>
+            <p>Add your email here (example: you@email.com).</p>
+          </div>
+          <div class="card">
+            <h4>GitHub</h4>
+            <p>Add your GitHub link here.</p>
+          </div>
+          <div class="card">
+            <h4>LinkedIn</h4>
+            <p>Add your LinkedIn link here.</p>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2>Contact</h2>
-          <p class="muted">Let’s connect.</p>
-        </div>
-
-        <div class="card contact reveal">
-          <p><strong>Email:</strong> tgrovers@labviva.com</p>
-          <p><strong>GitHub:</strong> github.com/tgrovers-cloud</p>
-          <p><strong>LinkedIn:</strong> linkedin.com/in/tgrovers@labviva.com</p>
-
-          <div class="contact-actions">
-            <a class="btn" href="mailto:tgrovers@labviva.com">Email me</a>
-            <a class="btn btn-secondary" href="#projects">View Projects</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container footer-inner">
-        <p class="muted">© <span id="year"></span> Tarquin grovers • Built with HTML/CSS</p>
-        <a href="#top" class="muted">Back to top ↑</a>
-      </div>
-    </footer>
   </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Project screenshots">
+      <button class="modal-close" data-close="true" aria-label="Close">✕</button>
+
+      <div class="modal-head">
+        <div>
+          <div id="modalTitle" class="modal-title"></div>
+          <div id="modalDesc" class="modal-desc"></div>
+        </div>
+        <div id="modalChips" class="chips"></div>
+      </div>
+
+      <div class="modal-body">
+        <button id="prevBtn" class="nav-btn" aria-label="Previous">‹</button>
+        <div class="modal-image-wrap">
+          <img id="modalImg" class="modal-image" alt="Project screenshot" />
+          <div id="imgCounter" class="img-counter"></div>
+        </div>
+        <button id="nextBtn" class="nav-btn" aria-label="Next">›</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Tarquin Grovers</span>
+      <span class="footer-note">Built on GitHub Pages</span>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
