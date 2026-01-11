@@ -22,11 +22,25 @@ const projects = [
       "images/pong-version-improvements.png",
       "images/pong-version-comparison.png"
     ]
+  },
+  {
+    id: "ticket",
+    title: "Ticket Booking App (SQLite)",
+    desc: "Tkinter + SQLite ticket booking app with search, edit/delete, CSV export, and PDF receipt printing.",
+    cover: "images/ticket-app.png",
+    chips: ["Python", "Tkinter", "SQLite", "UX"],
+    images: [
+      "images/ticket-app.png",
+      "images/ticket-app-ux-sql.png",
+      "images/ticket-app-update.png",
+      "images/ticket-app-latest-flow.png",
+      "images/ticket-app-changes.png"
+    ]
   }
 ];
 
-
 const grid = document.getElementById("projectGrid");
+
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const modalTitle = document.getElementById("modalTitle");
@@ -41,15 +55,16 @@ document.getElementById("year").textContent = new Date().getFullYear();
 let activeProject = null;
 let activeIndex = 0;
 
-function chipHTML(text) {
+function chipHTML(text){
   const span = document.createElement("span");
   span.className = "chip";
   span.textContent = text;
   return span;
 }
 
-function renderProjects() {
+function renderProjects(){
   grid.innerHTML = "";
+
   projects.forEach((p) => {
     const card = document.createElement("article");
     card.className = "project";
@@ -59,6 +74,11 @@ function renderProjects() {
     img.className = "project-thumb";
     img.src = p.cover;
     img.alt = `${p.title} screenshot`;
+    img.loading = "lazy";
+    img.onerror = () => {
+      img.alt = `Missing image: ${p.cover}`;
+      img.style.objectFit = "contain";
+    };
 
     const body = document.createElement("div");
     body.className = "project-body";
@@ -84,7 +104,7 @@ function renderProjects() {
 
     card.addEventListener("click", () => openModal(p));
     card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
+      if(e.key === "Enter" || e.key === " "){
         e.preventDefault();
         openModal(p);
       }
@@ -94,7 +114,7 @@ function renderProjects() {
   });
 }
 
-function openModal(project) {
+function openModal(project){
   activeProject = project;
   activeIndex = 0;
 
@@ -110,45 +130,54 @@ function openModal(project) {
   document.body.style.overflow = "hidden";
 }
 
-function closeModal() {
+function closeModal(){
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 }
 
-function updateModalImage() {
-  modalImg.src = activeProject.images[activeIndex];
+function updateModalImage(){
+  const src = activeProject.images[activeIndex];
+  modalImg.src = src;
+  modalImg.alt = `${activeProject.title} screenshot ${activeIndex + 1}`;
   imgCounter.textContent = `${activeIndex + 1} / ${activeProject.images.length}`;
 }
 
-function nextImage() {
+function nextImage(){
+  if(!activeProject) return;
   activeIndex = (activeIndex + 1) % activeProject.images.length;
   updateModalImage();
 }
 
-function prevImage() {
+function prevImage(){
+  if(!activeProject) return;
   activeIndex = (activeIndex - 1 + activeProject.images.length) % activeProject.images.length;
   updateModalImage();
 }
 
-prevBtn.addEventListener("click", nextImage);
-nextBtn.addEventListener("click", prevImage);
+prevBtn.addEventListener("click", prevImage);
+nextBtn.addEventListener("click", nextImage);
 
 modal.addEventListener("click", (e) => {
-  if (e.target.dataset.close === "true") closeModal();
+  if(e.target && e.target.dataset && e.target.dataset.close === "true"){
+    closeModal();
+  }
 });
 
 document.addEventListener("keydown", (e) => {
-  if (!modal.classList.contains("show")) return;
-  if (e.key === "Escape") closeModal();
-  if (e.key === "ArrowRight") nextImage();
-  if (e.key === "ArrowLeft") prevImage();
+  if(!modal.classList.contains("show")) return;
+
+  if(e.key === "Escape") closeModal();
+  if(e.key === "ArrowRight") nextImage();
+  if(e.key === "ArrowLeft") prevImage();
+});
+
+document.querySelectorAll("[data-open]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const id = btn.getAttribute("data-open");
+    const p = projects.find(x => x.id === id);
+    if(p) openModal(p);
+  });
 });
 
 renderProjects();
-
-
-
-
-
-
