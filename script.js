@@ -25,10 +25,10 @@ const projects = [
   },
   {
     id: "ticket",
-    title: "Ticket Booking App (SQLite)",
-    desc: "Tkinter + SQLite ticket booking app with search, edit/delete, CSV export, and PDF receipt printing.",
+    title: "Ticket Booking App",
+    desc: "Desktop ticket booking app with SQLite database, search, CSV export, ticket preview, and PDF receipt generation.",
     cover: "images/ticket-app.png",
-    chips: ["Python", "Tkinter", "SQLite", "UX"],
+    chips: ["Python", "Tkinter", "SQLite", "Export", "PDF"],
     images: [
       "images/ticket-app.png",
       "images/ticket-app-ux-sql.png",
@@ -181,3 +181,4 @@ document.querySelectorAll("[data-open]").forEach(btn => {
 });
 
 renderProjects();
+
