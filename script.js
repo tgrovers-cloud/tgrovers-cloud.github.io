@@ -22,7 +22,7 @@ const projects = [
       "images/pong-version-improvements.png",
       "images/pong-version-comparison.png"
     ]
-  },
+  }
   {
     id: "ticket",
     title: "Ticket Booking App",
@@ -201,6 +201,7 @@ document.querySelectorAll("[data-open]").forEach(btn => {
 });
 
 renderProjects();
+
 
 
 
