@@ -1,3 +1,4 @@
+// Portfolio projects data (paths MUST match /images filenames exactly)
 const projects = [
   {
     id: "tetris",
@@ -22,7 +23,7 @@ const projects = [
       "images/pong-version-improvements.png",
       "images/pong-version-comparison.png"
     ]
-  }
+  },
   {
     id: "ticket",
     title: "Ticket Booking App",
@@ -41,10 +42,10 @@ const projects = [
     id: "messenger",
     title: "Friendly messenger-app",
     desc: "A friendly messaging app with a clean interface, smooth conversation flow, and polished UI screens.",
-    cover: "images/friendly-messenger-app.png",
+    cover: "images/friendly-meesenger-app.png",
     chips: ["Python", "Tkinter", "UI/UX", "Messaging"],
     images: [
-      "images/friendly-messenger-app.png",
+      "images/friendly-mesenger-app.png",
       "images/friendly-messenger-01.png",
       "images/friendly-messenger-02.png",
       "images/friendly-messenger-03.png",
@@ -56,9 +57,10 @@ const projects = [
       "images/friendly-messenger-09.png",
       "images/friendly-messenger-10.png"
     ]
-  },
+  }
 ];
 
+// --- DOM ---
 const grid = document.getElementById("projectGrid");
 
 const modal = document.getElementById("modal");
@@ -70,19 +72,37 @@ const imgCounter = document.getElementById("imgCounter");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-document.getElementById("year").textContent = new Date().getFullYear();
+// Footer year (safe even if element is missing)
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// --- State ---
 let activeProject = null;
 let activeIndex = 0;
 
-function chipHTML(text){
+// --- Helpers ---
+function chipHTML(text) {
   const span = document.createElement("span");
   span.className = "chip";
   span.textContent = text;
   return span;
 }
 
-function renderProjects(){
+function safeSetImage(imgEl, src, alt) {
+  imgEl.src = src;
+  imgEl.alt = alt;
+
+  imgEl.onerror = () => {
+    imgEl.removeAttribute("src"); // avoid broken-image icon
+    imgEl.alt = `Missing image: ${src}`;
+    imgEl.style.objectFit = "contain";
+  };
+}
+
+// --- Render grid ---
+function renderProjects() {
+  if (!grid) return;
+
   grid.innerHTML = "";
 
   projects.forEach((p) => {
@@ -92,13 +112,8 @@ function renderProjects(){
 
     const img = document.createElement("img");
     img.className = "project-thumb";
-    img.src = p.cover;
-    img.alt = `${p.title} screenshot`;
     img.loading = "lazy";
-    img.onerror = () => {
-      img.alt = `Missing image: ${p.cover}`;
-      img.style.objectFit = "contain";
-    };
+    safeSetImage(img, p.cover, `${p.title} screenshot`);
 
     const body = document.createElement("div");
     body.className = "project-body";
@@ -113,7 +128,7 @@ function renderProjects(){
 
     const chips = document.createElement("div");
     chips.className = "chips";
-    p.chips.forEach(c => chips.appendChild(chipHTML(c)));
+    p.chips.forEach((c) => chips.appendChild(chipHTML(c)));
 
     body.appendChild(h);
     body.appendChild(d);
@@ -124,7 +139,7 @@ function renderProjects(){
 
     card.addEventListener("click", () => openModal(p));
     card.addEventListener("keydown", (e) => {
-      if(e.key === "Enter" || e.key === " "){
+      if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         openModal(p);
       }
@@ -134,74 +149,94 @@ function renderProjects(){
   });
 }
 
-function openModal(project){
+// --- Modal ---
+function updateModalImage() {
+  if (!activeProject || !modalImg) return;
+
+  const src = activeProject.images[activeIndex];
+  safeSetImage(
+    modalImg,
+    src,
+    `${activeProject.title} screenshot ${activeIndex + 1}`
+  );
+
+  if (imgCounter) {
+    imgCounter.textContent = `${activeIndex + 1} / ${activeProject.images.length}`;
+  }
+}
+
+function openModal(project) {
   activeProject = project;
   activeIndex = 0;
 
-  modalTitle.textContent = project.title;
-  modalDesc.textContent = project.desc;
+  if (modalTitle) modalTitle.textContent = project.title;
+  if (modalDesc) modalDesc.textContent = project.desc;
 
-  modalChips.innerHTML = "";
-  project.chips.forEach(c => modalChips.appendChild(chipHTML(c)));
+  if (modalChips) {
+    modalChips.innerHTML = "";
+    project.chips.forEach((c) => modalChips.appendChild(chipHTML(c)));
+  }
 
   updateModalImage();
-  modal.classList.add("show");
-  modal.setAttribute("aria-hidden", "false");
+
+  if (modal) {
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
   document.body.style.overflow = "hidden";
 }
 
-function closeModal(){
-  modal.classList.remove("show");
-  modal.setAttribute("aria-hidden", "true");
+function closeModal() {
+  if (modal) {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+  }
   document.body.style.overflow = "";
 }
 
-function updateModalImage(){
-  const src = activeProject.images[activeIndex];
-  modalImg.src = src;
-  modalImg.alt = `${activeProject.title} screenshot ${activeIndex + 1}`;
-  imgCounter.textContent = `${activeIndex + 1} / ${activeProject.images.length}`;
-}
-
-function nextImage(){
-  if(!activeProject) return;
+function nextImage() {
+  if (!activeProject) return;
   activeIndex = (activeIndex + 1) % activeProject.images.length;
   updateModalImage();
 }
 
-function prevImage(){
-  if(!activeProject) return;
+function prevImage() {
+  if (!activeProject) return;
   activeIndex = (activeIndex - 1 + activeProject.images.length) % activeProject.images.length;
   updateModalImage();
 }
 
-prevBtn.addEventListener("click", prevImage);
-nextBtn.addEventListener("click", nextImage);
+// --- Events ---
+if (prevBtn) prevBtn.addEventListener("click", prevImage);
+if (nextBtn) nextBtn.addEventListener("click", nextImage);
 
-modal.addEventListener("click", (e) => {
-  if(e.target && e.target.dataset && e.target.dataset.close === "true"){
-    closeModal();
-  }
-});
+if (modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target && e.target.dataset && e.target.dataset.close === "true") {
+      closeModal();
+    }
+  });
+}
 
 document.addEventListener("keydown", (e) => {
-  if(!modal.classList.contains("show")) return;
+  if (!modal || !modal.classList.contains("show")) return;
 
-  if(e.key === "Escape") closeModal();
-  if(e.key === "ArrowRight") nextImage();
-  if(e.key === "ArrowLeft") prevImage();
+  if (e.key === "Escape") closeModal();
+  if (e.key === "ArrowRight") nextImage();
+  if (e.key === "ArrowLeft") prevImage();
 });
 
-document.querySelectorAll("[data-open]").forEach(btn => {
+document.querySelectorAll("[data-open]").forEach((btn) => {
   btn.addEventListener("click", () => {
     const id = btn.getAttribute("data-open");
-    const p = projects.find(x => x.id === id);
-    if(p) openModal(p);
+    const p = projects.find((x) => x.id === id);
+    if (p) openModal(p);
   });
 });
 
+// Boot
 renderProjects();
-
 
 
 
