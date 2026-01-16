@@ -119,6 +119,17 @@ a:hover{opacity:.9}
 .featured-desc{color:var(--muted); margin:0 0 14px; line-height:1.5}
 .featured-actions{display:flex; gap:10px}
 
+.featured-cover{
+  width:100%;
+  height:150px;
+  border-radius: 14px;
+  object-fit: cover;
+  display:block;
+  margin: 12px 0 12px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.02);
+}
+
 .section{padding:26px 0}
 .section-head{
   display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
@@ -278,3 +289,4 @@ a:hover{opacity:.9}
   .nav{display:none}
   .modal-media img{height: 46vh}
 }
+
