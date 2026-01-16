@@ -41,25 +41,26 @@ const projects = [
     ]
   },
   {
-    id: "messenger",
-    title: "Friendly messenger-app",
-    desc: "A friendly messaging app with a clean interface, smooth conversation flow, and polished UI screens.",
-    cover: "images/friendly-mesenger-app.png",
-    chips: ["Python", "Tkinter", "UI/UX", "Messaging"],
-    images: [
-      "images/friendly-mesenger-app.png",
-      "images/friendly-messenger-01.png",
-      "images/friendly-messenger-02.png",
-      "images/friendly-messenger-03.png",
-      "images/friendly-messenger-04.png",
-      "images/friendly-messenger-05.png",
-      "images/friendly-messenger-06.png",
-      "images/friendly-messenger-07.png",
-      "images/friendly-messenger-08.png",
-      "images/friendly-messenger-09.png",
-      "images/friendly-messenger-10.png"
-    ]
-  }
+  id: "messenger",
+  featured: true,
+  title: "Friendly messenger-app",
+  desc: "A friendly messaging app with a clean interface, smooth conversation flow, and polished UI screens.",
+  cover: "images/friendly-mesenger-app.png",
+  chips: ["Python", "Tkinter", "UI/UX", "Messaging"],
+  images: [
+    "images/friendly-mesenger-app.png",
+    "images/friendly-messenger-01.png",
+    "images/friendly-messenger-02.png",
+    "images/friendly-messenger-03.png",
+    "images/friendly-messenger-04.png",
+    "images/friendly-messenger-05.png",
+    "images/friendly-messenger-06.png",
+    "images/friendly-messenger-07.png",
+    "images/friendly-messenger-08.png",
+    "images/friendly-messenger-09.png",
+    "images/friendly-messenger-10.png"
+  ]
+}
 ];
 
 // ---------------------------
@@ -250,5 +251,6 @@ document.querySelectorAll("[data-open]").forEach((btn) => {
 // Boot
 // ---------------------------
 renderProjects();
+
 
 
