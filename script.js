@@ -261,6 +261,15 @@ function renderFeatured() {
   const btn1    = document.getElementById("featuredBtn1");
   const btn2    = document.getElementById("featuredBtn2");
 
+  const featuredTop = document.querySelector(".featured-top");
+  if (featuredTop) {
+    featuredTop.childNodes.forEach((n) => {
+      if (n.nodeType === Node.TEXT_NODE && n.textContent.includes('featuredMeta')) {
+        n.textContent = "";
+      }
+    });
+  }
+
   if (titleEl) titleEl.textContent = featuredProject.title;
   if (descEl)  descEl.textContent  = featuredProject.desc;
 
@@ -287,6 +296,7 @@ function renderFeatured() {
 // ---------------------------
 renderFeatured();
 renderProjects();
+
 
 
 
