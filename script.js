@@ -255,17 +255,27 @@ function renderFeatured() {
   if (!featuredProject) return;
 
   const titleEl = document.getElementById("featuredTitle");
-  const descEl = document.getElementById("featuredDesc");
-  const metaEl = document.getElementById("featuredMeta");
-  const btn1 = document.getElementById("featuredBtn1");
-  const btn2 = document.getElementById("featuredBtn2");
+  const descEl  = document.getElementById("featuredDesc");
+  const metaEl  = document.getElementById("featuredMeta");
+  const coverEl = document.getElementById("featuredCover");
+  const btn1    = document.getElementById("featuredBtn1");
+  const btn2    = document.getElementById("featuredBtn2");
 
   if (titleEl) titleEl.textContent = featuredProject.title;
-  if (descEl) descEl.textContent = featuredProject.desc;
+  if (descEl)  descEl.textContent  = featuredProject.desc;
 
-  // Optional: show 2 chips as the meta line
-  if (metaEl && featuredProject.chips && featuredProject.chips.length) {
+  if (metaEl && featuredProject.chips?.length) {
     metaEl.textContent = featuredProject.chips.slice(0, 2).join(" • ");
+  }
+
+  if (coverEl) {
+    coverEl.src = featuredProject.cover;
+    coverEl.alt = `${featuredProject.title} cover`;
+    coverEl.onerror = () => {
+      coverEl.removeAttribute("src");
+      coverEl.alt = `Missing image: ${featuredProject.cover}`;
+      coverEl.style.objectFit = "contain";
+    };
   }
 
   if (btn1) btn1.onclick = () => openModal(featuredProject);
@@ -277,6 +287,7 @@ function renderFeatured() {
 // ---------------------------
 renderFeatured();
 renderProjects();
+
 
 
 
