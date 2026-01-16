@@ -1,4 +1,6 @@
-// Portfolio projects data (paths MUST match /images filenames exactly)
+// Portfolio projects data (paths MUST match /images filenames exactly)// ---------------------------
+// Projects data (match /images filenames EXACTLY)
+// ---------------------------
 const projects = [
   {
     id: "tetris",
@@ -42,7 +44,7 @@ const projects = [
     id: "messenger",
     title: "Friendly messenger-app",
     desc: "A friendly messaging app with a clean interface, smooth conversation flow, and polished UI screens.",
-    cover: "images/friendly-meesenger-app.png",
+    cover: "images/friendly-mesenger-app.png",
     chips: ["Python", "Tkinter", "UI/UX", "Messaging"],
     images: [
       "images/friendly-mesenger-app.png",
@@ -60,7 +62,9 @@ const projects = [
   }
 ];
 
-// --- DOM ---
+// ---------------------------
+// DOM
+// ---------------------------
 const grid = document.getElementById("projectGrid");
 
 const modal = document.getElementById("modal");
@@ -72,15 +76,19 @@ const imgCounter = document.getElementById("imgCounter");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-// Footer year (safe even if element is missing)
+// Footer year
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// --- State ---
+// ---------------------------
+// State
+// ---------------------------
 let activeProject = null;
 let activeIndex = 0;
 
-// --- Helpers ---
+// ---------------------------
+// Helpers
+// ---------------------------
 function chipHTML(text) {
   const span = document.createElement("span");
   span.className = "chip";
@@ -88,18 +96,21 @@ function chipHTML(text) {
   return span;
 }
 
-function safeSetImage(imgEl, src, alt) {
+// Use the existing style, but show helpful alt text if missing
+function setImage(imgEl, src, alt) {
   imgEl.src = src;
   imgEl.alt = alt;
 
   imgEl.onerror = () => {
-    imgEl.removeAttribute("src"); // avoid broken-image icon
+    imgEl.removeAttribute("src");
     imgEl.alt = `Missing image: ${src}`;
     imgEl.style.objectFit = "contain";
   };
 }
 
-// --- Render grid ---
+// ---------------------------
+// Render projects grid
+// ---------------------------
 function renderProjects() {
   if (!grid) return;
 
@@ -113,7 +124,7 @@ function renderProjects() {
     const img = document.createElement("img");
     img.className = "project-thumb";
     img.loading = "lazy";
-    safeSetImage(img, p.cover, `${p.title} screenshot`);
+    setImage(img, p.cover, `${p.title} screenshot`);
 
     const body = document.createElement("div");
     body.className = "project-body";
@@ -149,16 +160,14 @@ function renderProjects() {
   });
 }
 
-// --- Modal ---
+// ---------------------------
+// Modal logic
+// ---------------------------
 function updateModalImage() {
   if (!activeProject || !modalImg) return;
 
   const src = activeProject.images[activeIndex];
-  safeSetImage(
-    modalImg,
-    src,
-    `${activeProject.title} screenshot ${activeIndex + 1}`
-  );
+  setImage(modalImg, src, `${activeProject.title} screenshot ${activeIndex + 1}`);
 
   if (imgCounter) {
     imgCounter.textContent = `${activeIndex + 1} / ${activeProject.images.length}`;
@@ -207,7 +216,9 @@ function prevImage() {
   updateModalImage();
 }
 
-// --- Events ---
+// ---------------------------
+// Events
+// ---------------------------
 if (prevBtn) prevBtn.addEventListener("click", prevImage);
 if (nextBtn) nextBtn.addEventListener("click", nextImage);
 
@@ -235,8 +246,9 @@ document.querySelectorAll("[data-open]").forEach((btn) => {
   });
 });
 
+// ---------------------------
 // Boot
+// ---------------------------
 renderProjects();
-
 
 
