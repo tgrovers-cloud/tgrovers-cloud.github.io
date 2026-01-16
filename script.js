@@ -248,9 +248,36 @@ document.querySelectorAll("[data-open]").forEach((btn) => {
 });
 
 // ---------------------------
+// Featured
+// ---------------------------
+function renderFeatured() {
+  const featuredProject = projects.find(p => p.featured) || projects[0];
+  if (!featuredProject) return;
+
+  const titleEl = document.getElementById("featuredTitle");
+  const descEl = document.getElementById("featuredDesc");
+  const metaEl = document.getElementById("featuredMeta");
+  const btn1 = document.getElementById("featuredBtn1");
+  const btn2 = document.getElementById("featuredBtn2");
+
+  if (titleEl) titleEl.textContent = featuredProject.title;
+  if (descEl) descEl.textContent = featuredProject.desc;
+
+  // Optional: show 2 chips as the meta line
+  if (metaEl && featuredProject.chips && featuredProject.chips.length) {
+    metaEl.textContent = featuredProject.chips.slice(0, 2).join(" • ");
+  }
+
+  if (btn1) btn1.onclick = () => openModal(featuredProject);
+  if (btn2) btn2.onclick = () => openModal(featuredProject);
+}
+
+// ---------------------------
 // Boot
 // ---------------------------
+renderFeatured();
 renderProjects();
+
 
 
 
